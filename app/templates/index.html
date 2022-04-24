@@ -1,0 +1,154 @@
+<html>
+<head>
+    <title>Stock Data by Kiril</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<h1 style="text-align: center; margin-bottom:5%">Stock Data Statistics by Kiril Spiridonov</h1>
+<div style="max-width: 500px; margin:auto" class="d-flex align-content-start flex-wrap">
+    <form method="post" id="get-data" name="getDataForm" action="get-data">
+        <div class="mb-3">
+            <label for="ticker" class="form-label">Ticker</label>
+            <input name="ticker" class="form-control" id="ticker" aria-describedby="ticker">
+        </div>
+        <select id="period" name="period" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option value="max">Max</option>
+            <option value="5d">5d</option>
+            <option value="1mo">1mo</option>
+            <option value="3mo">3mo</option>
+            <option value="6mo">6mo</option>
+            <option value="1y">1y</option>
+            <option value="2y">2y</option>
+            <option value="5y">5y</option>
+            <option value="10y">10y</option>
+            <option value="ytd">ytd</option>
+
+
+        </select>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div style="max-width: 900px; margin:auto">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Indicator</th>
+            <th scope="col">Value</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Ticker</td>
+            <td>{{ticker}}</td>
+        </tr>
+        <tr>
+            <td>Sector</td>
+            <td>{{sector}}</td>
+        </tr>
+        <tr>
+            <td>Avg. Vol.</td>
+            <td>{{volumAvg}}</td>
+        </tr>
+        <tr>
+            <td>Median Vol.</td>
+            <td>{{volumMean}}</td>
+
+        </tr>
+        <tr>
+            <td>High-Low Mean</td>
+            <td>{{HighLowMean}}</td>
+        </tr>
+        <tr>
+            <td>High-Low Median</td>
+            <td>{{HighLowMedian}}</td>
+        </tr>
+        <tr>
+            <td>Open-Close Mean</td>
+            <td>{{OpenCloseMean}}</td>
+        </tr>
+        <tr>
+            <td>Open-Close Median</td>
+            <td>{{OpenCloseMedian}}</td>
+        </tr>
+        <tr>
+            <td>Average difference in Highs</td>
+            <td>{{diffInHighAvg}}</td>
+        </tr>
+        <tr>
+            <td>Median difference in Highs</td>
+            <td>{{diffInHighMedian}}</td>
+        </tr>
+        <tr>
+            <td>Average difference in Lows</td>
+            <td>{{diffInLowAvg}}</td>
+        </tr>
+        <tr>
+            <td>Median difference in Lows</td>
+            <td>{{diffInLowMedian}}</td>
+        </tr>
+        <tr>
+            <td>Bear Bars</td>
+            <td>{{Bear}}; {{BearPercent}}%</td>
+        </tr>
+        <tr>
+            <td>Bull Bars</td>
+            <td>{{Bull}}; {{BullPercent}}%</td>
+        </tr>
+        <tr>
+            <td>Higher Open</td>
+            <td>{{OpenedHigher}}; {{OHpercent}}%</td>
+        </tr>
+        <tr>
+            <td>Lower Open</td>
+            <td>{{OpenedLower}}; {{OLpercent}}%</td>
+        </tr>
+        <tr>
+            <td>Difference in Open (Mean)</td>
+            <td>{{DiffinOpenAvg}}</td>
+        </tr>
+        <tr>
+            <td>Difference in Open (Median)</td>
+            <td>{{DiffinOpenMedian}}</td>
+        </tr>
+        <tr>
+            <td>Last Low</td>
+            <td>{{Last_Low}}</td>
+        </tr>
+        <tr>
+            <td>Last High</td>
+            <td>{{Last_High}}</td>
+        </tr>
+        <tr>
+            <td>Bid Signal</td>
+            <td>{{Bid}}</td>
+        </tr>
+        <tr>
+            <td>Ask Signal</td>
+            <td>{{Ask}}</td>
+        </tr>
+        <tr>
+            <td>Counter-Imbalance Trading Success</td>
+            <td>{{ImbalanceCounter}}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <img style="width:100%" src='data:image/png;base64,{{data}}'/>
+</div>
+</body>
+</html>
